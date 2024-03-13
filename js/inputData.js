@@ -1,3 +1,62 @@
+//Ket noi den firestore cua firebase
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+
+const firebaseConfig = {
+     apiKey: "AIzaSyCKcaZEsG2snA3yzVH39Q1Xp2ujMu7HYHg",
+     authDomain: "todolist-e8010.firebaseapp.com",
+     projectId: "todolist-e8010",
+     storageBucket: "todolist-e8010.appspot.com",
+     messagingSenderId: "177958072689",
+     appId: "1:177958072689:web:75a87c1ab3fab11272c6d0"
+   };
+
+   const app = initializeApp(firebaseConfig);
+
+//them cac function de thuc hien add, post, update, delete
+import {
+     getFirestore,
+     setDoc,
+     addDoc,
+     doc,
+     collection,
+     getDoc,
+     getDocs,
+     updateDoc,
+     deleteDoc,
+} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+
+let database = getFirestore(app);
+//add data
+function add(id,name,fromDay,fromMonth,fromYear,toDay,toMonth,toYear,content){
+     setDoc(doc(database, "todolist", String(id)), {
+          id: id,
+          name:name,
+          fromDay: fromDay,
+          fromMonth:fromMonth,
+          fromYear: fromYear,
+          toDay: toDay,
+          toMonth: toMonth,
+          toYear:toYear,
+          content:content
+        });
+        alert("user added");
+}
+
+//get all data
+const myData = [];
+
+async function getAllData() {
+     const querySnapshot = await getDocs(collection(database, "todolist"));
+     querySnapshot.forEach((doc) => {
+          myData.push(doc.data());
+        });
+        console.log(myData);
+}
+
+getAllData()
+
 let addButton = document.getElementById('myAddButton');
 const array = [];
 
@@ -9,10 +68,11 @@ addButton.addEventListener ('click', (e)=>{
    let toDay = document.getElementById('day2').value;
    let toMonth = document.getElementById('month2').value;
    let toYear = document.getElementById('year2').value;
-
+   let id = Math.floor(Math.random() * 10 + 1);
+   let content = "";
    
    const toDoList = {
-        id: Math.floor(Math.random() * 10 + 1),
+        id: id,
         name: myAdd,
         fromDay: fromDay,
         fromMonth: fromMonth,
@@ -20,8 +80,12 @@ addButton.addEventListener ('click', (e)=>{
         toDay: toDay,
         toMonth: toMonth,
         toYear: toYear,
-        content: "",
+        content: content,
+
    }
+   console.log(id);
+   add(id, myAdd, fromDay, fromMonth, fromYear, toDay, toMonth, toYear, content);
+
     array.push(toDoList);
     console.log(array);
      let wrapperDiv = document.createElement("div");
@@ -64,9 +128,5 @@ addButton.addEventListener ('click', (e)=>{
      div3.appendChild(div32);
      document.getElementById("wrapperTodo").appendChild(wrapperDiv);
 })
-
-
-
-console.log(array);
 
 
