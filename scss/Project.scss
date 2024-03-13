@@ -1,0 +1,262 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+.note-view{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: none;
+    .view-wrapper{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .view{
+            width: 650px;
+            aspect-ratio: 2/1.5;
+            border: 1px solid #333;
+            background-color: white;
+        }
+    }
+    
+    
+}
+
+.container{ 
+    border: 1px solid #333;
+    color: #333;
+    margin: 0 auto;
+    width: 650px;
+    height: 200px;
+    display: flex;
+
+    flex-direction: column;
+    .container:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        input{
+            margin: 0;
+            border-radius: 5px;
+            width: 75%;
+            padding: 10px;
+            float: left;
+            font-size: 16px;
+            border: 1px solid #333;
+        }
+        .addButton{
+            width: 50px;
+            padding: 10px;
+            float: left;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.4s;
+            border-radius: 0;
+            background-color: #b2bec3;
+            color: #636e72;
+        }
+        .addButton:hover{
+            background-color: #7f8c8d;
+        }
+    }
+    .time{
+        width: 100%;
+        height: 120px;
+        .from-to{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            flex-direction: row;
+            .time-from{
+                width: 255px;
+            }
+            .time-to{
+                width: 255px;
+                padding-left: 30px;
+            }
+        }
+        .day-month-year{
+            width: 100%;
+            height: 80%;
+            display: flex;
+            flex-direction: row;
+            .day-month-year-1{
+                
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                .day-1{
+                    width: 80px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    #day1{
+                        width: 50px;
+                        height: 20px;
+                    }
+                }
+                .month-1{
+                    width: 80px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    #month1{
+                        width: 50px;
+                        height: 20px;
+                    }
+                }
+                .year-1{
+                    width: 80px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    #year1{
+                        width: 50px;
+                        height: 20px;
+                    }
+                }
+            }
+            .day-month-year-2{
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .day-month-year-3{
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                .day-2{
+                    width: 80px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    #day2{
+                        width: 50px;
+                        height: 20px;
+                    }
+                }
+                .month-2{
+                    width: 80px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    #month2{
+                        width: 50px;
+                        height: 20px;
+                    }
+                }
+                .year-2{
+                    width: 80px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    #year2{
+                        width: 50px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.wrapper-todo{
+    width: 650px;
+    height: 600px;
+    border: 1px solid #333;
+    margin: 0 auto;
+    margin-top: 20px;
+    overflow: scroll;
+    .wrapper-div{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid #333;
+        .div-1{
+            width: 150px;
+            height: 100%;
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .from{
+                width: 100%;
+                height: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .div-1-2{
+                width: 100%;
+                height: 30px;
+                
+            }
+            .to{
+                width: 100%;
+                height: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .div-2{
+            width: 450px;
+            height: 100%;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .div-3{
+            width: 150px;
+            height: 100%;
+            border-left: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .div-3-1{
+                width: 40px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #333;
+            }
+            .div-3-2{
+                width: 40px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #333;
+                margin-top: 8px;
+            }
+        }
+    }
+}
